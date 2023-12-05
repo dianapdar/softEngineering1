@@ -1,0 +1,7 @@
+package observerPatternLab;
+
+public interface NewsAgencySubject {
+    public void subscribe(SubscriberObserver subscriberObserver);
+    public void unsubscribe(SubscriberObserver subscriberObserver);
+    public void notifySubscribers(String news);
+}

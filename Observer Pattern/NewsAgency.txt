@@ -1,0 +1,29 @@
+package observerPatternLab;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class NewsAgency implements NewsAgencySubject{
+    private List<SubscriberObserver> subscribersList = new ArrayList<>(
+
+    );
+
+    @Override
+    public void subscribe(SubscriberObserver subscriberObserver){
+       subscribersList.add(subscriberObserver);
+    }
+    @Override
+    public void unsubscribe(SubscriberObserver subscriberObserver){
+        subscribersList.remove(subscriberObserver);
+    }
+    @Override
+    public void notifySubscribers(String news){
+        for (SubscriberObserver subscriber : subscribersList)
+        {subscriber.update(news);  }
+    }
+
+    public void breakingNews(String news){
+    System.out.println("BREAKING NEWS!\n" + news);
+    notifySubscribers(news);
+    }
+}

@@ -1,0 +1,34 @@
+package observerPatternLab;
+
+import java.util.*;
+public class RealTimeNewsSubscription {
+    public static void main(String[] args){
+
+        NewsAgency newsAgency = new NewsAgency();
+
+        Subscriber subscriber1 = new Subscriber("Maxene");
+        Subscriber subscriber2 = new Subscriber("Joseph");
+        Subscriber subscriber3 = new Subscriber("Arnold");
+
+        //subscriber subscribe to News Agency
+        newsAgency.subscribe(subscriber1);
+        newsAgency.subscribe(subscriber2);
+        newsAgency.subscribe(subscriber3);
+
+        //publish breaking news and notify subscribers
+        newsAgency.breakingNews("Earthquake hits South of Philippine Capital!\n");
+
+        // subscriber3 unsubscribes
+        newsAgency.unsubscribe(subscriber3);
+
+        //new subscriber subscribe
+        Subscriber subscriber4 = new Subscriber("Joanna");
+        newsAgency.subscribe(subscriber4);
+
+        //updates
+        System.out.println("BREAKING NEWS UPDATES!");
+        newsAgency.notifySubscribers("Current prices of food in Metro Manila market rise up\n");
+
+
+    }
+}
