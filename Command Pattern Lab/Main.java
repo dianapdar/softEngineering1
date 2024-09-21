@@ -9,7 +9,6 @@ public class Main {
         Command adjustBrightness = new AdjustCommand(light, "brightness", 50);
         System.out.println(adjustBrightness.execute());
         System.out.println();
-        System.out.println("hello");
 
         Command turnOnThermostat = new TurnOnCommand(thermostat);
         System.out.println(turnOnThermostat.execute());
